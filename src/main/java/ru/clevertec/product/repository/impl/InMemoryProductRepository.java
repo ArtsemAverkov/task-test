@@ -38,5 +38,3 @@ public class InMemoryProductRepository implements ProductRepository {
         products.removeIf(product -> product.getUuid().equals(uuid));
     }
 }
-
-}
