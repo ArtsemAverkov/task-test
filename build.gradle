@@ -18,9 +18,11 @@ repositories {
 ext {
     junitVersion = '5.9.2'
     mockitoVersion = '5.6.0'
+    jupiterParamsVersion = '5.0.0-M4'
 }
 
 dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${jupiterParamsVersion}"
     testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
 
     testImplementation 'org.assertj:assertj-core:3.24.2'
