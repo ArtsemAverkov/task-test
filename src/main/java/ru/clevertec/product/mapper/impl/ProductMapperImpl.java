@@ -5,20 +5,46 @@ import ru.clevertec.product.data.ProductDto;
 import ru.clevertec.product.entity.Product;
 import ru.clevertec.product.mapper.ProductMapper;
 
+import java.math.BigDecimal;
+
 public class ProductMapperImpl implements ProductMapper {
 
     @Override
     public Product toProduct(ProductDto productDto) {
-        return null;
+        if (productDto == null) {
+            return null;
+        }
+
+        // Используем Lombok Builder для создания объекта Product
+        return Product.builder()
+                .name(productDto.name())
+                .description(productDto.description())
+                .price(productDto.price())
+                .build();
     }
 
-    @Override
     public InfoProductDto toInfoProductDto(Product product) {
-        return null;
+        if (product == null) {
+            return null;
+        }
+
+        return new InfoProductDto(
+                product.getUuid(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice().compareTo(BigDecimal.ZERO) > 0 ? product.getPrice() : BigDecimal.ZERO);
     }
 
     @Override
     public Product merge(Product product, ProductDto productDto) {
-        return null;
+        if (product == null || productDto == null) {
+            return null;
+        }
+
+        return Product.builder()
+                .name(productDto.name())
+                .description(productDto.description())
+                .price(productDto.price())
+                .build();
     }
 }
