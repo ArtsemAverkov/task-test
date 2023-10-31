@@ -18,6 +18,7 @@ repositories {
 ext {
     junitVersion = '5.9.2'
     mockitoVersion = '5.6.0'
+    jupiterParamsVersion = '5.0.0-M4'
     hibernateValidatorVersion = '8.0.1.Final'
 }
 
