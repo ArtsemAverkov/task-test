@@ -18,16 +18,19 @@ repositories {
 ext {
     junitVersion = '5.9.2'
     mockitoVersion = '5.6.0'
-    jupiterParamsVersion = '5.0.0-M4'
+    hibernateValidatorVersion = '8.0.1.Final'
 }
 
 dependencies {
-    testImplementation "org.junit.jupiter:junit-jupiter-params:${jupiterParamsVersion}"
+    implementation "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
+    implementation "org.mapstruct:mapstruct:1.5.5.Final"
+
     testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
 
     testImplementation 'org.assertj:assertj-core:3.24.2'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
 }
 
 test {
